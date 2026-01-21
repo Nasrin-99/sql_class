@@ -10,6 +10,15 @@ import { fileURLToPath } from "url";
 
 const PORT = process.env.PORT || 8080;
 
+console.log("ENV CHECK →");
+console.log("DB_HOST =", process.env.DB_HOST);
+console.log("DB_USER =", process.env.DB_USER);
+console.log("DB_PASSWORD =", process.env.DB_PASSWORD ? "SET" : "NOT SET");
+console.log("DB_NAME =", process.env.DB_NAME);
+console.log("DB_PORT =", process.env.DB_PORT);
+console.log("PORT =", process.env.PORT);
+
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
