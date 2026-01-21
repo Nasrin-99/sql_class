@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
+dotenv.config();
 import { faker } from '@faker-js/faker';
 import mysql from 'mysql2/promise';
 import express from "express";
@@ -25,11 +27,13 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Create DB connection
 const connection = await mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  database: 'collage',
-  password: 'Nasrin@27'
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT
 });
+
 
 
 let getRandomUser = () => {
@@ -46,12 +50,6 @@ let getRandomUser = () => {
   ];
 };
 
-//let q1 = "SHOW TABLES";
-
-//new data inserting
-// let q = "INSERT INTO user (id, username, email, password, birthdate) VALUES ?";
-// let users = ["123b", "123_newuserb", "abcb"];
-//let users = [["123b", "123_newuserb", "abcb"], ["123c", "123_newuserc", "abcc"]];
 
 // let data=[];
 // for(let i =1;i<=200;i++){
@@ -59,15 +57,7 @@ let getRandomUser = () => {
 //   data.push(getRandomUser());
 // }
 
-
-
-
-
-// console.log(getRandomUser());
-
-
 //query method
-
 // let getRandomUser = () => {
 //   return [
 //     faker.string.uuid(),
@@ -80,15 +70,6 @@ let getRandomUser = () => {
 //   ];
 // }
 
-// sql data cunnection
-// try {
-//   const [rows] = await connection.query(q, [data]);
-//   console.log(rows);
-
-// } catch (err) {
-//   console.error(err);
-// }
-// connection.end();
 
 // rout build home
 app.get("/", async (req, res) => {
