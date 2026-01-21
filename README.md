@@ -1,5 +1,7 @@
 # 📘 SQL Class – User Management System
 
+![Node.js CI](https://github.com/Nasrin-99/sql_class/actions/workflows/node.js.yml/badge.svg)
+
 A **full-stack CRUD web application** built with **Node.js, Express, MySQL, and EJS**, featuring user creation, viewing, editing, deletion (with verification), and a clean UI.
 
 ---
