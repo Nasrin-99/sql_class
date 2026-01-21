@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Username</title>
+
+    <!-- SAME CSS AS show.ejs -->
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="overlay">
+
+        <div class="page edit-page">
+            <h1>✏️ Edit User</h1>
+            <p class="subtitle">You are about to edit this user</p>
+
+            <form action="/user/<%= result.id %>?_method=PATCH" method="POST" class="edit-form">
+
+                <!-- USERNAME -->
+                <div class="form-group">
+                    <label>Username</label>
+                    <textarea name="username" required><%= result.username %></textarea>
+                </div>
+
+                <!-- PASSWORD -->
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" name="password" placeholder="Enter password" required>
+                </div>
+
+                <!-- BUTTONS -->
+                <div class="btn-group">
+                    <button class="edit-btn">Update</button>
+                    
+                </div>
+
+            </form>
+            <br>
+            <span>
+                <form action="/user" method="get">
+                    <button class="back-btn">⬅ Go Back</button>
+                </form>
+            </span>
+        </div>
+
+    </div>
+</body>
+
+</html>

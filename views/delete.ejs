@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Delete User</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="overlay">
+
+        <div class="page edit-page">
+            <h1>⚠️ Delete User</h1>
+            <p class="subtitle">Enter username and password to confirm delete</p>
+
+            <form action="/user/<%= id %>?_method=DELETE" method="POST" class="edit-form">
+
+                <!-- USERNAME -->
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" name="username" required>
+                </div>
+
+                <!-- PASSWORD -->
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" required>
+                </div>
+
+                <!-- BUTTON -->
+                <button type="submit" class="cancel-btn">
+                    Confirm Delete
+                </button>
+
+
+            </form>
+            <br>
+            <span>
+                <form action="/user" method="get">
+                    <button class="back-btn">⬅ Go Back</button>
+                </form>
+            </span>
+        </div>
+
+
+    </div>
+</body>
+
+</html>

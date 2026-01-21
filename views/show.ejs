@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Users</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="overlay">
+
+        <div class="page">
+            <h1>👥 All Users</h1>
+            <span>
+                <form action="/" method="get">
+                    <button class="back-btn">⬅ Go Back</button>
+                </form>
+            </span>
+            <div class="top-bar">
+                <p>
+                    Total number of users:
+                    <span>
+                        <%= totalusers %>
+                    </span>
+                </p>
+
+                <form action="/user/new" method="get">
+                    <button type="submit" class="add-btn">
+                        ➕ Add User
+                    </button>
+                </form>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>COUNT</th>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Birthdate</th>
+                        <th>EDIT</th>
+                        <th>DELETE</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% if (!users || users.length===0) { %>
+                        <tr>
+                            <td colspan="5" class="empty">No users found</td>
+                        </tr>
+                        <% } else { %>
+
+                            <% let count=1; %>
+                                <% users.forEach(user=> { %>
+                                    <tr>
+                                        <td>
+                                            <%= count %>
+                                        </td>
+                                        <td>
+                                            <%= user.id %>
+                                        </td>
+                                        <td>
+                                            <%= user.username %>
+                                        </td>
+                                        <td>
+                                            <%= user.email %>
+                                        </td>
+                                        <td>
+                                            <%= user.birthdate %>
+                                        </td>
+                                        <td>
+                                            <form method="GET" action="/user/<%= user.id %>/edit"><button
+                                                    class="edit-btn">EDIT</button></form>
+                                        </td>
+                                        <td>
+                                            <form method="get" action="/user/<%= user.id %>/delete"><button
+                                                    class="cancel-btn">DELETE</button></form>
+                                        </td>
+                                    </tr>
+                                    <% count++; %>
+                                        <% }) %>
+
+                                            <% } %>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New User</title>
+
+    <!-- same css file -->
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="overlay">
+
+        <div class="page edit-page">
+            <h1>➕ Add New User</h1>
+            <p class="subtitle">Fill the form to add a new user</p>
+
+            <form action="/user" method="POST" class="edit-form">
+                <!-- HIDDEN ID -->
+                <input type="hidden" name="id" value="<%= id %>">
+
+
+                <!-- USERNAME -->
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" name="username" placeholder="Enter username" required>
+                </div>
+
+                <!-- EMAIL -->
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="Enter email" required>
+                </div>
+
+                <!-- PASSWORD -->
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="Enter password" required>
+                </div>
+
+                <!-- BIRTHDATE -->
+                <div class="form-group">
+                    <label>Birthdate</label>
+                    <input type="date" name="birthdate" required>
+                </div>
+
+                <!-- BUTTONS -->
+                <div class="btn-group">
+                    <button type="submit" class="edit-btn">
+                        Add User
+                    </button>
+
+
+                </div>
+
+            </form>
+            <br>
+            <form>
+                <button formaction="/user" formmethod="GET" class="cancel-btn">
+                    Cancel
+                </button>
+            </form>
+        </div>
+
+    </div>
+</body>
+
+</html>
