@@ -28,12 +28,26 @@ app.use(express.static(path.join(__dirname, "public")));
 
 
 // Create DB connection
-const connection = await mysql.createConnection({
-  host: process.env.MYSQLHOST,
-  user: process.env.MYSQLUSER,
-  password: process.env.MYSQLPASSWORD,
-  database: process.env.MYSQLDATABASE,
-  port: process.env.MYSQLPORT
+let connection;
+
+(async () => {
+  try {
+    connection = await mysql.createConnection({
+      host: process.env.DB_HOST,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
+      port: process.env.DB_PORT,
+    });
+
+    console.log("✅ MySQL connected");
+  } catch (err) {
+    console.error("❌ DB connection failed:", err);
+  }
+})();
+
+app.get("/health", (req, res) => {
+  res.send("App is running");
 });
 
 
