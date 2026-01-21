@@ -8,6 +8,8 @@ import methodOverride from "method-override";
 import path from "path";
 import { fileURLToPath } from "url";
 
+const PORT = process.env.PORT || 8080;
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -234,6 +236,6 @@ app.patch("/user/:id", async (req, res) => {
 
 
 //server state
-app.listen("8080", () => {
-  console.log(`server is lisining at 8080`);
+app.listen(PORT, () => {
+  console.log(`server is lisining at ${PORT}`);
 })
