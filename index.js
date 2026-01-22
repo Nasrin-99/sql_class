@@ -81,6 +81,26 @@ for(let i =1;i<=20;i++){
   data.push(getRandomUser());
 }
 
+// 🔥 TEMPORARY ROUTE: seed fake users
+app.get("/seed", async (req, res) => {
+  try {
+    for (let user of data) {
+      await connection.query(
+        "INSERT INTO user (id, username, email, password, birthdate) VALUES (?, ?, ?, ?, ?)",
+        user
+      );
+    }
+
+    res.send("✅ 200 fake users inserted successfully");
+  } catch (err) {
+    console.error(err);
+    res.send("❌ Error inserting users");
+  }
+});
+
+
+
+
 // rout build home
 app.get("/", async (req, res) => {
   let q = `SELECT COUNT(*) AS total FROM user`;
