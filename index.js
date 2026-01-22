@@ -75,26 +75,11 @@ let getRandomUser = () => {
   ];
 };
 
-
-// let data=[];
-// for(let i =1;i<=200;i++){
-//   //console.log(getRandomUser());
-//   data.push(getRandomUser());
-// }
-
-//query method
-// let getRandomUser = () => {
-//   return [
-//     faker.string.uuid(),
-//     faker.internet.username(),
-//     // email: faker.internet.email(),
-//     //avatar: faker.image.avatar(),
-//     faker.internet.password(),
-//     // birthdate: faker.date.birthdate(),
-//     // registeredAt: faker.date.past(),
-//   ];
-// }
-
+let data=[];
+for(let i =1;i<=20;i++){
+  //console.log(getRandomUser());
+  data.push(getRandomUser());
+}
 
 // rout build home
 app.get("/", async (req, res) => {
