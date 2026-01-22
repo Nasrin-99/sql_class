@@ -167,7 +167,7 @@ app.delete("/user/:id", async (req, res) => {
 
         //  verify username & password
         if (username !== user.username || password !== user.password) {
-            return res.send("Username or password incorrect");
+            return res.redirect("/user");
         }
 
         //  delete record
